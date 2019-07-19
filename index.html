@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+    <head>
+        <title>Crystals Collector Game</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/css/style.css">
+
+    </head>
+
+    <body>
+
+        <!-- Jumbotron -->
+        <div class="jumbotron">
+            <h1 class="display-4 text-center text-primary">Crystals Collector!</h1>
+            <!-- <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> -->
+        </div>
+
+        <div class="container">
+ 
+            <!-- Card body with game instructions. -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card border-primary mb-3">
+                        <div class="card-body">
+                          <p class="card-text">You will be given a random number at the beginning of the game.</p>
+                          <p>There are four crystals below. By clicking on a crystal, you will add a specific amount of points to your total score.</p>
+                          <p>You win the game by matching your total score to the random number. You lose the game if your total score goes above the random number.</p>
+                          <p>The value of each crystal is hidden from you until you click it.</p>
+                          <p>Each time when the game starts, the game will change the values of each crystal.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                 <!-- Card body with Target Score -->
+
+                <div class="col-md-4">
+                    <div class="card border-primary mb-3 scorecard">
+                        <div class="card-body">
+                          <h3 class="text-center text-primary">Your Target Score:</h3>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Card body with User's Total Score -->
+                <div class="col-md-4">
+                    <div class="card border-primary mb-3 scorecard">
+                        <div class="card-body">
+                          <h3 class="text-center text-primary">Your Total Score:</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card body with User's Wins and Losses -->
+                <div class="col-md-4">
+                    <div class="card border-primary mb-3 scorecard">
+                        <div class="card-body">
+                          <h4 class="text-center text-primary">Wins:</h4>
+                          <h4 class="text-center text-primary">Losses:</h4>
+                        </div>
+                    </div>
+                </div>
+            <!-- End Row -->
+            </div>
+
+            <div class="row">
+
+                <!-- Image 1: Diamond -->
+                <div class="col-md-3">
+                    <div class="card border-primary mb-3 crystal">
+                        <img src="assets/images/diamond.png" class="card-img-top" alt="diamond">
+                    </div>
+                </div>
+
+                <!-- Image 2: Emerald -->
+                <div class="col-md-3">
+                    <div class="card border-primary mb-3 crystal">
+                        <img src="assets/images/emerald.jpg" class="card-img-top" alt="emerald">
+                    </div>
+                </div>
+
+                <!-- Image 3: Ruby -->
+                <div class="col-md-3">
+                    <div class="card border-primary mb-3 crystal">
+                        <img src="assets/images/ruby.jpg" class="card-img-top" alt="ruby">
+                    </div>
+                </div>
+
+                <!-- Image 4: Sapphire -->
+                <div class="col-md-3">
+                    <div class="card border-primary mb-3 crystal">
+                        <img src="assets/images/sapphire.jpeg" class="card-img-top" alt="sapphire">
+                    </div>
+                </div>
+
+            <!-- End row of crystals -->
+            </div>
+
+
+        </div>
+
+        <!-- Adds a link to the JavaScript file. Loaded at the bottom so it waits for the HTML content to display first. -->
+        <script src="assets/javascript/game.js"></script>
+
+    </body>
