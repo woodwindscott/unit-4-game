@@ -1,39 +1,85 @@
+//Declaring global variables
 var crystals = ["diamond", "emerald", "ruby", "sapphire"];
 var crystalSource = ["assets/images/diamond.png", "assets/images/emerald.jpg", "assets/images/ruby.jpg", "assets/images/sapphire.jpeg"];
 var crystalDestination = ["#crystal-1", "#crystal-2", "#crystal-3", "#crystal-4"];
-console.log(crystalSource);
+var wins = 0;
+var losses = 0;
+var counter = 0;
+var targetNumber = 0;
 
+$("#total-score").text(counter);
+$("#wins").text(wins);
+$("#losses").text(losses);
 
-for (var i = 0; i < crystals.length; i++) {
+function startGame() {
 
-    // For each iteration, we will create an imageCrystal
-    var imageCrystal = $("<img>");
+    //Reset variables
+    counter = 0;
+    targetNumber = 0;
+    $("#total-score").text(counter);
+    $("#wins").text(wins);
+    $("#losses").text(losses);
 
-    // First each crystal will be given the class ".crystal-image".
-    // This will allow the CSS to take effect.
-    imageCrystal.addClass("crystal-image card-img-top");
+    // Generate the random target number between 19 & 120
+    targetNumber = (Math.floor(Math.random() * 102) + 19);
+    console.log("Target number: " + targetNumber);
+    $("#target-score").text(targetNumber);
 
-    // Each imageCrystal will be given a src link to the crystal image
-    imageCrystal.attr("src", crystalSource[i]);
+    // For loop to generate crystal images and values
+    for (var i = 0; i < crystals.length; i++) {
 
-    var value = (Math.floor(Math.random() * 12) + 1);
-    // Each imageCrystal will be given a data attribute called data-crystalValue.
-    // This data attribute will be set equal to the array value.
-    imageCrystal.attr("data-crystalvalue", value);
-
-    // Lastly, each crystal image (with all it classes and attributes) will get added to the page.
-    $(crystalDestination[i]).append(imageCrystal);
+        console.log("test");
+        // For each iteration, we will create an imageCrystal
+        var imageCrystal = $("<img>");
+    
+        // First each crystal will be given the class ".crystal-image card-img-top".
+        imageCrystal.addClass("crystal-image card-img-top");
+    
+        // Each imageCrystal will be given a src link to the crystal image
+        imageCrystal.attr("src", crystalSource[i]);
+    
+        // Generate a random number from 1 to 12 to be assigned to each crystal
+        var value = (Math.floor(Math.random() * 12) + 1);
+        imageCrystal.attr("data-crystalvalue", value);
+    
+        // Lastly, each crystal image (with all it classes and attributes) will get added to the page.
+        $(crystalDestination[i]).html(imageCrystal);
+    }
 
 }
 
-$(".crystal-image").on("click", function() {
+function roundComplete() {
 
-    // Determining the crystal's value requires us to extract the value from the data attribute.
-    // Using the $(this) keyword specifies that we should be extracting the crystal value of the clicked crystal.
-    // Using the .attr("data-crystalvalue") allows us to grab the value out of the "data-crystalvalue" attribute.
-    // Since attributes on HTML elements are strings, we must convert it to an integer before adding to the counter
+    //Adds value of crystal to total score and displays it
+    counter += crystalValue;
+    $("#total-score").text(counter);
 
-    var crystalValue = ($(this).attr("data-crystalvalue"));
+    // You win
+    if (counter === targetNumber) {
+        wins++;
+        alert("You win!");
+        startGame();
+    }
+
+    // You lose
+    if (counter > targetNumber) {
+        losses++
+        alert("You lose!");
+        startGame();
+    }
+}
+
+// Actual run of game
+//===================
+
+startGame();
+
+$(document).on("click", ".crystal-image", function() {
+    console.log('working')
+    // Grab the value of each crystal when clicked
+    crystalValue = ($(this).attr("data-crystalvalue"));
     crystalValue = parseInt(crystalValue);
     console.log(crystalValue);
+
+    roundComplete();
 });
