@@ -28,7 +28,6 @@ function startGame() {
     // For loop to generate crystal images and values
     for (var i = 0; i < crystals.length; i++) {
 
-        console.log("test");
         // For each iteration, we will create an imageCrystal
         var imageCrystal = $("<img>");
     
@@ -75,7 +74,6 @@ function roundComplete() {
 startGame();
 
 $(document).on("click", ".crystal-image", function() {
-    console.log('working')
     // Grab the value of each crystal when clicked
     crystalValue = ($(this).attr("data-crystalvalue"));
     crystalValue = parseInt(crystalValue);
