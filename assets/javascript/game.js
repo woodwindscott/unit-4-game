@@ -22,7 +22,6 @@ function startGame() {
 
     // Generate the random target number between 19 & 120
     targetNumber = (Math.floor(Math.random() * 102) + 19);
-    console.log("Target number: " + targetNumber);
     $("#target-score").text(targetNumber);
 
     // For loop to generate crystal images and values
